@@ -15,7 +15,7 @@ class UserController extends Controller
 
         $users=User::all();
         $roles=Role::all();
-        return view('users.index', compact('users', 'roles'));
+        return view('app.users.index', compact('users', 'roles'));
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('app.users.create');
     }
 
     public function store(Request $request)
@@ -59,7 +59,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user=User::find($id);
-        return view('users.edit', compact('user'));
+        return view('app.dashboard.users.edit', compact('user'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Role;
+use App\Models\Permission;
 class RoleController extends Controller
 {
 
@@ -11,7 +12,8 @@ class RoleController extends Controller
     public function index()
     {
         $roles=Role::all();
-        return view('roles.index', compact('roles'));
+        $permissions=Permission::all();;
+        return view('app.roles.index', compact('roles', 'permissions'));
     }
 
     /**
@@ -19,7 +21,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('app.roles.create');
     }
 
     public function store(Request $request)
@@ -51,7 +53,7 @@ class RoleController extends Controller
     public function edit(string $id)
     {
         $role=Role::find($id);
-        return view('roles.edit', compact('role'));
+        return view('app.roles.edit', compact('role'));
     }
 
     /**
@@ -63,7 +65,7 @@ class RoleController extends Controller
       $role->name=$request->name;
       $role->save();
       
-      return redirect()->route('roles.index');
+      return redirect()->route('aroles.index');
     }
 
     /**

@@ -8,7 +8,7 @@ use App\Models\User;
 class DashboardController extends Controller
 {
     public function  index(){
-        return view('dashboard');
+        return view('app.dashboard');
     }
     // public function  assignrole(Request $request, string $id){
     //     $user=User::find($id);
